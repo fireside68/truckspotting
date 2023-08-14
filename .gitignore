@@ -39,3 +39,4 @@ assets/node_modules/
 .elixir_ls/
 
 .env
+setup.sql
