@@ -43,11 +43,25 @@ defmodule Truckspotting.AccountsFixtures do
     {:ok, role} =
       attrs
       |> Enum.into(%{
-        role: :customer,
+        role: :user,
         description: "some description"
       })
       |> Truckspotting.Accounts.create_role()
 
     role
+  end
+
+  @doc """
+  Generate a user_role.
+  """
+  def user_role_fixture(attrs \\ %{}) do
+    {:ok, user_role} =
+      attrs
+      |> Enum.into(%{
+
+      })
+      |> Truckspotting.Accounts.create_user_role()
+
+    user_role
   end
 end
