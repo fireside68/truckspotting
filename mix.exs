@@ -13,10 +13,11 @@ defmodule Truckspotting.MixProject do
 
       # Docs
       name: "Truckspotting",
-      source_url: "https://github.com/fireside68/truckspotting.git",
+      source_url: "https://github.com/fireside68/truckspotting",
       homepage_url: "https://changethis.com",
       docs: [
         main: "Truckspotting",
+        source_ref: "master",
         extras: ["README.md"]
       ]
     ]
