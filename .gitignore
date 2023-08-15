@@ -40,3 +40,5 @@ assets/node_modules/
 
 .env
 setup.sql
+mix_tasks_for_tables.exs
+notes.md
