@@ -9,6 +9,7 @@ defmodule Truckspotting.Accounts do
   alias Truckspotting.Accounts.User
   alias Truckspotting.Accounts.Role
 
+  @spec list_users :: list(User.t())
   @doc """
   Returns the list of users.
 
@@ -21,6 +22,22 @@ defmodule Truckspotting.Accounts do
   def list_users do
     Repo.all(User)
   end
+
+  @doc """
+  Gets a single user.
+
+  Returns `nil` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user(123)
+      %User{}
+
+      iex> get_user(456)
+      nil
+  """
+  @spec get_user(integer()) :: User.t() | nil
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Gets a single user.
