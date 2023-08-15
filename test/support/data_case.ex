@@ -19,6 +19,7 @@ defmodule Truckspotting.DataCase do
   using do
     quote do
       alias Truckspotting.Repo
+      alias Truckspotting.Factory
 
       import Ecto
       import Ecto.Changeset

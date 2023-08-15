@@ -3,6 +3,7 @@ defmodule Truckspotting.AccountsFixtures do
   This module defines test helpers for creating
   entities via the `Truckspotting.Accounts` context.
   """
+  alias Truckspotting.Factory
 
   @doc """
   Generate a unique user email_address.
@@ -43,7 +44,7 @@ defmodule Truckspotting.AccountsFixtures do
     {:ok, role} =
       attrs
       |> Enum.into(%{
-        role: :user,
+        name: :user,
         description: "some description"
       })
       |> Truckspotting.Accounts.create_role()
@@ -58,7 +59,8 @@ defmodule Truckspotting.AccountsFixtures do
     {:ok, user_role} =
       attrs
       |> Enum.into(%{
-
+        user_id: Factory.insert!(:user).id,
+        role_id: Factory.insert!(:role).id
       })
       |> Truckspotting.Accounts.create_user_role()
 
