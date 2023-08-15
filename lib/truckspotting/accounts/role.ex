@@ -3,7 +3,7 @@ defmodule Truckspotting.Accounts.Role do
   import Ecto.Changeset
 
   schema "roles" do
-    field :role, Ecto.Enum, values: [:admin, :customer, :owner, :user]
+    field :name, Ecto.Enum, values: [:admin, :customer, :owner, :user]
     field :description, :string
 
     timestamps()
@@ -12,7 +12,7 @@ defmodule Truckspotting.Accounts.Role do
   @doc false
   def changeset(role, attrs) do
     role
-    |> cast(attrs, [:role, :description])
-    |> validate_required([:role, :description])
+    |> cast(attrs, [:name, :description])
+    |> validate_required([:name, :description])
   end
 end
