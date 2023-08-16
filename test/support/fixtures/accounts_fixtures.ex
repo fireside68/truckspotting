@@ -4,6 +4,9 @@ defmodule Truckspotting.AccountsFixtures do
   entities via the `Truckspotting.Accounts` context.
   """
   alias Truckspotting.Factory
+  alias Truckspotting.Accounts
+  alias Truckspotting.Accounts.Roles
+  alias Truckspotting.Accounts.Users
 
   @doc """
   Generate a unique user email_address.
@@ -32,7 +35,7 @@ defmodule Truckspotting.AccountsFixtures do
         password: "some password",
         username: unique_user_username()
       })
-      |> Truckspotting.Accounts.create_user()
+      |> Users.create_user()
 
     user
   end
@@ -47,7 +50,7 @@ defmodule Truckspotting.AccountsFixtures do
         name: :user,
         description: "some description"
       })
-      |> Truckspotting.Accounts.create_role()
+      |> Roles.create_role()
 
     role
   end
@@ -62,7 +65,7 @@ defmodule Truckspotting.AccountsFixtures do
         user_id: Factory.insert!(:user).id,
         role_id: Factory.insert!(:role).id
       })
-      |> Truckspotting.Accounts.create_user_role()
+      |> Accounts.create_user_role()
 
     user_role
   end

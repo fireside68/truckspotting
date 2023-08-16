@@ -10,6 +10,9 @@ defmodule Truckspotting.Accounts.UserRole do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Truckspotting.Accounts.User
+  alias Truckspotting.Accounts.Users
+
   schema "user_roles" do
     field :user_id, :id
     field :role_id, :id
@@ -27,8 +30,8 @@ defmodule Truckspotting.Accounts.UserRole do
 
   def validate_is_user(changeset, field) when is_atom(field) do
     validate_change(changeset, field, fn field, value ->
-      case Truckspotting.Accounts.get_user(value) do
-        %Truckspotting.Accounts.User{} = _ -> []
+      case Users.get_user(value) do
+        %User{} = _ -> []
         _ -> [{field, "This references a nonexistent user"}]
       end
     end)
