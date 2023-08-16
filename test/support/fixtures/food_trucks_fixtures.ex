@@ -20,4 +20,21 @@ defmodule Truckspotting.FoodTrucksFixtures do
 
     applicant
   end
+
+  @doc """
+  Generate a schedule.
+  """
+  def schedule_fixture(attrs \\ %{}) do
+    {:ok, schedule} =
+      attrs
+      |> Enum.into(%{
+        end: ~T[14:00:00],
+        int_day_of_week: 42,
+        start: ~T[14:00:00],
+        string_day_of_week: "some string_day_of_week"
+      })
+      |> Truckspotting.FoodTrucks.Schedules.create_schedule()
+
+    schedule
+  end
 end
