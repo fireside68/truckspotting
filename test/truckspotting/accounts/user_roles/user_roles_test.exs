@@ -8,7 +8,7 @@ defmodule Truckspotting.Accounts.UserRoles.UserRolesTest do
   setup do
     invalid_attrs = %{user_id: nil, role_id: nil}
     user = Factory.insert!(:user)
-    role = Factory.insert!(:role, [name: :user, description: "Based role"])
+    role = Factory.insert!(:role, name: :user, description: "Based role")
 
     {:ok, %{invalid_attrs: invalid_attrs, role: role, user: user}}
   end
@@ -30,7 +30,9 @@ defmodule Truckspotting.Accounts.UserRoles.UserRolesTest do
       assert {:ok, %UserRole{} = _user_role} = Accounts.create_user_role(valid_attrs)
     end
 
-    test "create_user_role/1 with invalid data returns error changeset", %{invalid_attrs: invalid_attrs} do
+    test "create_user_role/1 with invalid data returns error changeset", %{
+      invalid_attrs: invalid_attrs
+    } do
       assert {:error, %Ecto.Changeset{}} = Accounts.create_user_role(invalid_attrs)
     end
 
@@ -41,7 +43,9 @@ defmodule Truckspotting.Accounts.UserRoles.UserRolesTest do
       assert {:ok, %UserRole{} = _user_role} = Accounts.update_user_role(user_role, update_attrs)
     end
 
-    test "update_user_role/2 with invalid data returns error changeset", %{invalid_attrs: invalid_attrs} do
+    test "update_user_role/2 with invalid data returns error changeset", %{
+      invalid_attrs: invalid_attrs
+    } do
       user_role = user_role_fixture()
       assert {:error, %Ecto.Changeset{}} = Accounts.update_user_role(user_role, invalid_attrs)
       assert user_role == Accounts.get_user_role!(user_role.id)
