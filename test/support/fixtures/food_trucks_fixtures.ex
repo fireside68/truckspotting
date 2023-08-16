@@ -16,7 +16,7 @@ defmodule Truckspotting.FoodTrucksFixtures do
         permit: "some permit",
         permit_location: "some permit_location"
       })
-      |> Truckspotting.FoodTrucks.create_applicant()
+      |> Truckspotting.FoodTrucks.Applicants.create_applicant()
 
     applicant
   end
