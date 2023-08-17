@@ -7,6 +7,7 @@ defmodule Truckspotting.FoodTrucks.Schedule do
     field :int_day_of_week, :integer
     field :start, :time
     field :string_day_of_week, :string
+    field :location_id, :id
 
     timestamps()
   end
